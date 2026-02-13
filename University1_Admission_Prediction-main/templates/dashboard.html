@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #002147;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #f4c542;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn {
+            background-color: #2a76d2;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #1d5fb1;
+        }
+
+        /* Main Container */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin-top: 70px; /* to avoid overlap with navbar */
+        }
+
+        /* Hero Section */
+        .hero {
+            flex: 0 0 55%;
+            position: relative;
+            background: url('https://www.lawnstarter.com/blog/wp-content/uploads/2014/08/florida.jpg') no-repeat center center/cover;
+            color: white;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding-top: 80px;
+            color: white;
+        }
+
+        .content h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .content a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #2a76d2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .content a:hover {
+            background-color: #1d5fb1;
+        }
+
+        /* Features Section */
+        .features {
+            flex: 0 0 45%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #022c57;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .feature-box {
+            width: 30%;
+        }
+
+        .feature-box h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #f4c542;
+        }
+
+        .feature-box p {
+            font-size: 0.95em;
+            line-height: 1.4em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .features {
+                flex-direction: column;
+            }
+
+            .feature-box {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+
+            .content h2 {
+                font-size: 2em;
+            }
+
+            .content a {
+                padding: 8px 16px;
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="logo"><a href="#">ACADEMICS</a></div>
+        <div class="nav-links">
+            <a href="#">HOME</a>
+            <a href="#">PAGES</a>
+            <a href="#">COURSES</a>
+            <a href="#">RESEARCH</a>
+            <a href="#">NEWS</a>
+            <a href="#">GALLERY</a>
+            <a href="#">CONTACT</a>
+            <a class="btn" href="#">APPLY NOW</a>
+        </div>
+    </div>
+
+    <!-- Main Section: Hero + Features -->
+    <div class="main-container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="overlay"></div>
+            <div class="content">
+                <h2>Welcome, {{ user }}</h2>
+                <a href="/predict">Make a Prediction</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features">
+            <div class="feature-box">
+                <h3>Scholarship Facility</h3>
+                <p>Get the support you need with our extensive scholarship programs designed to help students succeed.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Skilled Lecturers</h3>
+                <p>Learn from experienced professionals who bring real-world knowledge into every lesson.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Library & Store</h3>
+                <p>Access a rich collection of academic resources, textbooks, and learning materials.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

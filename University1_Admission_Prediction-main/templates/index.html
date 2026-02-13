@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Search Page</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        height: 100%;
+    }
+
+    .navbar {
+        background-color: #002147;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: bold;
+    }
+
+    .navbar a:hover {
+        color: #f4c542;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+    }
+
+    .btn {
+        background-color: #2a76d2;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #1d5fb1;
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin-top: 70px;
+        background: url('https://static.vecteezy.com/system/resources/previews/027/183/857/large_2x/college-student-walking-to-university-campus-education-banner-concept-free-photo.jpg') no-repeat center center/cover;
+        position: relative;
+    }
+
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+        padding: 0px 0px;
+        box-sizing: border-box;
+        margin-left: 30px;
+    }
+
+    .form-wrapper {
+        background-color: #002147;
+        color: white;
+        max-width: 450px;
+        width: 100%;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        text-align: left;
+    }
+
+    .form-wrapper h1 {
+        font-size: 2em;
+        color: #f4c542;
+        margin-bottom: 20px;
+    }
+
+    .form-wrapper input,
+    .form-wrapper select {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1em;
+    }
+
+    .form-wrapper input[type="submit"] {
+        background-color: #f4c542;
+        color: #002147;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+    }
+
+    .form-wrapper input[type="submit"]:hover {
+        background-color: #e1b634;
+    }
+
+    .dragon-banner {
+        position: absolute;
+        top: 20%;
+        left: 150.50%;
+        transform: translate(-50%, -50%);
+        font-size: 4em;
+        font-weight: bold;
+        font-family: Impact, 'Arial Black', Rabner Dragon ;
+        background: linear-gradient(to top, #e25900 30%, #8b0000 70%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 3px 3px 0 #ffcc00 ,#8b0000 5px 5px 15px rgba(0, 0, 0, 0.8);
+        z-index: 3;
+        pointer-events: none;
+        white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+        .content {
+            justify-content: flex-start;
+            padding: 20px;
+        }
+
+        .form-wrapper {
+            max-width: 100%;
+        }
+
+        .dragon-banner {
+            font-size: 2em;
+            top: 65%;
+            left: 50%;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<!-- Navigation Bar -->
+<div class="navbar">
+    <div class="logo"><a href="#">ACADEMICS</a></div>
+    <div class="nav-links">
+        <a href="#">HOME</a>
+        <a href="#">PAGES</a>
+        <a href="#">COURSES</a>
+        <a href="#">RESEARCH</a>
+        <a href="#">NEWS</a>
+        <a href="#">GALLERY</a>
+        <a href="#">CONTACT</a>
+        <a class="btn" href="#">APPLY NOW</a>
+    </div>
+</div>
+
+<!-- Form Section -->
+<div class="main-container">
+    <div class="overlay"></div>
+    <div class="content">
+        <div class="form-wrapper">
+            <h1>Predict Your Chances for Admission</h1>
+            <form action="/predict" method="POST">
+                <input type="number" name="gre_score" id="gre_score" placeholder="GRE Score (260 - 300)" min="260" max="340" required>
+                <input type="number" name="toefl_score" id="toefl_score" placeholder="TOEFL Score (0 - 120)" min="0" max="120" required>
+                <input type="number" name="university_rating" id="university_rating" placeholder="University Rating (1 - 5)" min="1" max="5" required>
+                <input type="number" name="sop" id="sop" placeholder="SOP Score (1.0 - 5.0)" step="0.1" min="1" max="5" required>
+                <input type="number" name="lor" id="lor" placeholder="LOR Score (1.0 - 5.0)" step="0.1" min="1" max="5" required>
+                <input type="number" name="cgpa" id="cgpa" placeholder="CGPA (0.0 - 10.0)" step="0.1" min="0" max="10" required>
+                <select name="research" id="research" required>
+                    <option value="" disabled selected>Research Experience</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <input type="submit" value="Predict">
+            </form>
+        </div>
+
+        
+</div>
+{% endblock %}

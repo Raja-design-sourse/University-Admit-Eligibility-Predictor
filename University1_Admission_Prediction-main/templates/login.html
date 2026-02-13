@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #dbe9f4, #f3f7f9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .login-container {
+    background: rgba(255, 255, 255, 0.6); /* More transparent */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    position: relative;
+}
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-group {
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            background: #2a76d2;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #1d5fb1;
+        }
+
+        .message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .links {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .links a {
+            color: #2a76d2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 12px;
+            color: green;
+        }
+
+        .graduation-img {
+            position: absolute;
+            right: 10%;
+            bottom: 0;
+            width: 150px;
+            opacity: 0.95;
+        }
+        .website-name {
+            font-size: 36px; /* Larger font size */
+            font-weight: bold; /* Bold text */
+            color: #2a76d2; /* Main color for text */
+            text-transform: uppercase; /* Uppercase letters */
+            margin-bottom: 40px; /* Space below the website name */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow for better contrast */
+        }
+
+        .logo img {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="website-name">
+        ADMISSION PREDICTION
+   </div>
+
+    <div class="login-container">
+        <h2>Login to your account</h2>
+        <form method="POST">
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" name="username" required>
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password" required>
+            </div>
+            <input type="submit" value="Login" class="submit-btn">
+        </form>
+
+        <p class="message">{{ message }}</p>
+
+        <div class="links">
+            <p>Don't have an account yet? <a href="/register">Create an account</a></p>
+            <p>Forgot your password? Click <a href="#">here</a> to reset your password.</p>
+        </div>
+    </div>
+
+  
+    <div class="footer">
+        2025 © JOINT ADMISSION PREDICTION
+    </div>
+</body>
+</html>
